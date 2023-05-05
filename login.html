@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loginform💦💖</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+    <div class="info"></div><br><br>
+
+    <div class="top">
+
+
+        <div class="main"><br><br>
+        
+            <h1>Login Form</h1>
+            <form id="form">
+                <!-- <button class="login">Login</button><button class="signup">Signup</button><br><br> -->
+                <input type="text" id="name" name="User name" value="" placeholder="User name"><br><br>
+                <input type="text" id="password" name="Password" value="" placeholder="Password"><br>
+                <a class="forget" href="Forgot password">Forgot password?</a><br><br>
+                <!-- <button type="submit" class="login1">Login</button> -->
+                <input type="submit" id="submit" value="submit">
+                <h5>Not a member? <a class="signow" href="Signup now"> Signup now</a></h5>
+               
+            </form>
+             
+        </div>
+        
+        <br>
+        <a href="index.html"><button class="homeb">Cv page</button></a>
+       
+     
+        
+
+
+
+    </div>
+    
+   
+</body>
+
+ 
+<script>
+    //tunachukua data kwenye mtindo wa html tunapeleka kwenye javascript
+    let form = document.querySelector('#form');
+    form.addEventListener('submit', function (event){
+        event.preventDefault();
+        let name = document.getElementById('name').value;
+        
+    
+        let password = document.getElementById('password').value;
+        
+        if (name ==="admin" && password === "password"){
+            
+            let contacts = JSON.parse(localStorage.getItem('contacts'))||[];
+            let contactinfo = " ";
+            for(let i = 0; i < contacts.length;i++){
+                contactinfo += "<h1>contact #" + (i+1) + "</h1>";
+                contactinfo += "<p>name:" + contacts[i].Name + "</p>";
+                contactinfo += "<p>email:" + contacts[i].Email + "</p>";
+                contactinfo += "<p>address:" + contacts[i].Address + "</p>";
+                contactinfo += "<p>message:" + contacts[i].Message + "</p>";
+
+            };
+            //inner.html inamaana kit chet kiende kikajiandike hyo maneno yaliyoandkwa kwenye contactinfo(data zilizoingizwa)
+            // document.querySelector('#info').innerHTML=contactinfo;
+            const Main = document.querySelector('.main');
+            const muhsin = document.querySelector('.info');
+            const retrieve = document.createElement('div');
+
+            retrieve.classList.add('script-div');
+    
+            
+            retrieve.innerHTML = contactinfo;
+            Main.append(retrieve);
+        } else {
+            alert("invalid name or password");
+        }
+        
+
+    });
+    
+    
+</script>
+
+
+</html>

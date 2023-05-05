@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My contact</title>
+        <link rel="stylesheet" href="css/contactme.css">
+    </head>
+    <body>
+        <h1>My Contact Details</h1>
+        <p>My Fictional Address</p>
+        <p>0612345863</p>
+        <p>yamsah@gmail.com</p><hr>
+    
+        <form  id="form" >
+            <label>First name:</label>
+            <input type="text" id="fname" name="Yourname" value=""><br><br>
+            <label>Your email:</label>
+            <input type="email" id="email" name="Youremail" value=""><br><br>
+            <label>Your address:</label>
+            <input type="text" id="address" name="Youraddress" value=""><br><br>
+            <label>Your message:</label><br>
+            <textarea name="Your message" id="message" rows="10" cols="30"></textarea><br>
+            <button type="submit">submit</button>
+            <a href="index.html">Cv page</a>
+
+
+
+        </form><hr>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.674535239199!2d39.307147426100684!3d-6.208384050470014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185cd87fff0e403b%3A0xe5c2714deb19d725!2sTunguu!5e0!3m2!1sen!2stz!4v1682944506625!5m2!1sen!2stz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <script>
+            //tunachukua data kwenye html tunazileta kwenye javascript
+            let form = document.querySelector('#form');
+            form.addEventListener('submit',function(event){
+                event.preventDefault();
+                let fname = document.querySelector('#fname').value;
+                let email = document.querySelector('#email').value;
+    
+                let address = document.querySelector('#address').value;
+                let message = document.querySelector('#message').value;
+                // tunachukua data tunaeka kwenye mtindo wa object format
+                let contact = {
+                    Name:fname,
+                    Email:email,
+                    Address:address,
+                    Message:message 
+    
+                };
+                //tunachukua data tunazieka kwenye mtindo wa JSON format
+                let contacts = JSON.parse(localStorage.getItem('contacts'))||[];
+               //data zilizopo kwenye mtindo wa JSON tunazipeleka kwenye mtindo wa object ili user azione
+               contacts.push(contact);
+               localStorage.setItem('contacts', JSON.stringify(contacts));
+               alert(`Thank you ${fname}`);
+               form.reset();
+    
+            });
+            
+    
+        </script>
+    </body>
+</html>

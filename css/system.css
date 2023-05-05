@@ -1,0 +1,17 @@
+body {
+    background-image: url(../imagee/chupa.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+
+}
+
+h3 {
+    color: red;
+}
+ul {
+    color: white;
+}
+p {
+    color: white;
+}
